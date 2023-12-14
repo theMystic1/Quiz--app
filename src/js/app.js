@@ -1,18 +1,22 @@
 // controllerjs
+// import json from "url../../data.json";
+import * as model from "./model.js";
+import QuizView from "./view/quiz_view.js";
+import displayModeview from "./view/displayModeview.js";
 
-const body = document.querySelector("body");
-const toggleBtn = document.querySelector(".span--toggle_mode");
-const toggleMode = document.querySelector(".toggle--btn");
-const lightMoon = document.querySelector(".light-img--moon");
-const darkMoon = document.querySelector(".dark-img--moon");
-const lightSun = document.querySelector(".light-img--sun");
-const darkSun = document.querySelector(".dark-img--sun");
+// 1 render the quiz select interface
 
-toggleBtn.addEventListener("click", function () {
-  toggleMode.classList.toggle("toggle_dark--mode");
-  body.classList.toggle("dark-theme");
-  lightMoon.classList.toggle("hidden");
-  darkMoon.classList.toggle("hidden");
-  lightSun.classList.toggle("hidden");
-  darkSun.classList.toggle("hidden");
-});
+const controlSubjectsView = async function (data) {
+  await model.fetchData();
+  QuizView.getQuizSubject(model.state.quizzes[data]);
+  QuizView.renderMarkUpQuiz(model.state.quizzes[data]);
+};
+
+// const controlOptionBtns = function () {};
+
+const init = function () {
+  displayModeview.handleMode();
+  QuizView.handlerGetQuestions(controlSubjectsView);
+  QuizView.handlerOptions();
+};
+init();

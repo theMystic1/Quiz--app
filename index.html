@@ -14,16 +14,20 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="./src/images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="./src/css/app.css" />
+    <link rel="stylesheet" href="./src/css/landing.css" />
     <script type="module" src="./src/js/app.js"></script>
     <title>Frontend Mentor | Frontend quiz app</title>
   </head>
   <body class="dark-them">
     <main class="main">
       <nav class="nav">
-        <div class="left-section"></div>
+        <div class="left-section">
+          <img src="./src/images/icon-accessibility.svg" alt="" />
+          <p class="subj--title"></p>
+        </div>
         <div class="right-section">
           <img
             class="dark-img--moon"
@@ -52,29 +56,141 @@
       </nav>
       <section class="section">
         <div class="main--container">
-          <!-- your codes should be here -->
+          <!-- Quiz menu starts -->
 
-          Welcome to the Frontend Quiz! Pick a subject to get started. HTML CSS
-          JavaScript Accessibility
+          <!-- your codes should be here -->
+          <div class="left--side">
+            <span class="headings">
+              <h1 class="light">Welcome to the</h1>
+              <h1 class="bold">Frontend Quiz!</h1>
+            </span>
+
+            <p class="p">Pick a subject to get started. HTML CSS</p>
+          </div>
+
+          <div class="right--side">
+            <button class="quiz__subject quiz--btn" data-quiz="0">
+              <img class="logo" src="./src/images/icon-html.svg" alt="" />
+              <p class="subj">HTML</p>
+            </button>
+            <button class="quiz__subject quiz--btn" data-quiz="1">
+              <img class="logo" src="./src/images/icon-css.svg" alt="" />
+              <p class="subj">CSS</p>
+            </button>
+            <button class="quiz__subject quiz--btn" data-quiz="2">
+              <img class="logo" src="./src/images/icon-js.svg" alt="" />
+              <p class="subj">Javascript</p>
+            </button>
+            <button class="quiz__subject quiz--btn" data-quiz="3">
+              <img
+                class="logo"
+                src="./src/images/icon-accessibility.svg"
+                alt=""
+              />
+              <p class="subj">Accessibility</p>
+            </button>
+          </div>
 
           <!-- Quiz menu end -->
-
           <!-- Quiz question start -->
 
-          Question
-          <!-- number -->
-          of 10 A B C D Submit answer
+          <!-- <div class="left--side left--questions_side">
+            <p class="question-num">Questions 6 of 10</p>
+            <h1 class="question">
+              Which of these color contrast ratios defines the minimum WCAG 2.1
+              Level AA requirement for normal text?
+            </h1>
 
+            <div class="status-bar">
+              <div class="status"></div>
+            </div>
+          </div>
+
+          <div class="right--side">
+            <button class="quiz--btn active_btn__answered">
+              <span class="options active_btn--option"> A </span>
+              <p class="optuion_ans">4.5:1</p>
+              <span class="status--err--corr hidden">
+                <img src="./src/images/icon-error.svg" alt="" class="error" />
+                <img
+                  src="./src/images/icon-correct.svg"
+                  alt=""
+                  class="correct"
+                />
+              </span>
+            </button>
+
+            <button class="quiz--btn">
+              <span class="options"> B </span>
+              <p class="optuion_ans">3:1</p>
+              <span class="status--err--corr hidden">
+                <img src="./src/images/icon-error.svg" alt="" class="error" />
+                <img
+                  src="./src/images/icon-correct.svg"
+                  alt=""
+                  class="correct"
+                />
+              </span>
+            </button>
+            <button class="quiz--btn">
+              <span class="options"> C </span>
+              <p class="optuion_ans">2:5:1</p>
+              <span class="status--err--corr hidden">
+                <img src="./src/images/icon-error.svg" alt="" class="error" />
+                <img
+                  src="./src/images/icon-correct.svg"
+                  alt=""
+                  class="correct"
+                />
+              </span>
+            </button>
+            <button class="quiz--btn">
+              <span class="options"> D </span>
+              <p class="optuion_ans">5:1</p>
+              <span class="status--err--corr hidden">
+                <img src="./src/images/icon-error.svg" alt="" class="error" />
+                <img
+                  src="./src/images/icon-correct.svg"
+                  alt=""
+                  class="correct"
+                />
+              </span>
+            </button>
+            <button class="submit--btn">Submit Answer</button>
+            <p class="error-msg">
+              <img src="./src/images/icon-error.svg" alt="" />
+              Please select an answer
+            </p>
+          </div> -->
           <!-- Quiz question end -->
 
           <!-- Quiz completed start -->
 
-          Quiz completed You scored...
+          <!-- Quiz completed You scored... -->
+          <!-- <div class="left--side">
+            <span class="headings">
+              <h1 class="light">Quiz completed</h1>
+              <h1 class="bold">You scored...</h1>
+            </span>
+          </div>
 
-          <!-- score -->
-          out of 10
-
-          <!-- Quiz completed end -->
+          <div class="right--side">
+            <button class="score--btn">
+              <span class="scores--logo">
+                <img
+                  class="logo"
+                  src="./src/images/icon-accessibility.svg"
+                  alt=""
+                />
+                <p class="subj">Accessibility</p>
+              </span>
+              <p class="score">8</p>
+              <p class="questions--number">out of 10</p>
+            </button>
+            <button class="submit--btn">Play Again</button>
+          </div>
+          
+           Quiz completed end -->
         </div>
       </section>
     </main>

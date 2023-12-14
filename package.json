@@ -1,0 +1,11 @@
+{
+  "name": "front-end-quiz",
+  "version": "1.0.0",
+  "description": "quiz",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel index.html "
+  },
+  "author": "theMystic",
+  "license": "ISC"
+}
