@@ -29,7 +29,7 @@ html {
 }
 
 body {
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   background-image: url(/src/images/pattern-background-desktop-light.svg);
   background-color: var(--background-color);
   color: var(--secondary--color);
@@ -208,7 +208,7 @@ body {
 }
 
 .status {
-  width: 70%;
+  width: 10%;
   height: 100%;
   border-radius: 62.4375rem;
 
@@ -274,14 +274,6 @@ body {
 .status--err--corr {
   position: absolute;
   right: 2rem;
-}
-
-.error {
-  display: none;
-}
-
-.correct {
-  display: none;
 }
 
 .error-msg {

@@ -5,7 +5,7 @@ export let state = {
 
 export const fetchData = async function (quiz) {
   try {
-    const res = await fetch("data.json");
+    const res = await fetch('data.json');
 
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
