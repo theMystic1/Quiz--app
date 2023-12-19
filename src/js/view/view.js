@@ -3,6 +3,8 @@ export class View {
   _data;
   _markUp;
   _curQuestion = -1;
+  correctAnswers = [];
+  // console.log();
   htmlspecialchars(str) {
     const escapedString = str
       .replace(/&/g, '&amp;')
@@ -37,9 +39,42 @@ export class View {
   }
 
   updateProgressBar(data) {
+    // console.log(this.correctAnswers);
     this._data = data;
     let status = document.querySelector('.status');
     let progress = (this._curQuestion / this._data.questions.length) * 100;
-    status.style.width = `${progress}%`;
+
+    if (progress < 100) {
+      status.style.width = `${progress}%`;
+    }
+
+    if (progress > 100) return '';
+  }
+
+  renderSpinner() {
+    this._markUp = `
+      <div class="spinner">
+          <img src="./src/images/spinner-svgrepo-com.svg" alt="" />
+      </div>
+    `;
+
+    // this._parentEl = document.querySelector('.main--container');
+    this._parentElement.innerHTML = '';
+    this._parentElement.insertAdjacentHTML('afterbegin', this._markUp);
+  }
+
+  handleResetQuiz(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.play--btn');
+      if (!btn) return;
+
+      handler();
+    });
+  }
+
+  resetLogo() {
+    document.querySelector('.left-section').innerHTML = '';
   }
 }
+
+export default new View();

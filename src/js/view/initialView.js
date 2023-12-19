@@ -41,6 +41,10 @@ class InitialView extends View {
     this._parentElement.innerHTML = '';
     this._parentElement.insertAdjacentHTML('afterbegin', this._markUp);
   }
+
+  handlerInitialView(handler) {
+    document.addEventListener('DOMContentLoaded', handler);
+  }
 }
 
 export default new InitialView();

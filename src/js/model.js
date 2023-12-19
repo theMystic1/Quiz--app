@@ -1,6 +1,5 @@
 export let state = {
   quizzes: {},
-  answers: [],
 };
 
 export const fetchData = async function (quiz) {
@@ -11,7 +10,6 @@ export const fetchData = async function (quiz) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
     const data = await res.json();
-    console.log(data);
     state.quizzes = data.quizzes;
   } catch (error) {
     console.error(error);

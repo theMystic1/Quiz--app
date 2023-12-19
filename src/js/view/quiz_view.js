@@ -27,7 +27,7 @@ class QuizView extends View {
     container.insertAdjacentHTML('afterbegin', this._markUp);
   }
 
-  renderMarkUpQuiz(data) {
+  renderMarkUpQuiz(data, secondData) {
     this._data = data;
     if (this._curQuestion < this._data.questions.length) {
       let questionNum = this._curQuestion + 2;
@@ -40,7 +40,7 @@ class QuizView extends View {
       const currentQuestion = this._data.questions[this._curQuestion];
 
       if (currentQuestion) {
-        console.log(this._data);
+        // console.log(this._data);
         this._markUp = `
             <div class="left--side left--questions_side">
                 <p class="question-num">Questions ${questionNum} of ${
@@ -69,15 +69,17 @@ class QuizView extends View {
 
         this._parentElement.innerHTML = '';
         this._parentElement.innerHTML = this._markUp;
-        this.updateProgressBar(data);
+        this.updateProgressBar(this._data);
       } else {
-        this.renderScore(data);
+        this.renderSpinner();
+        setTimeout(() => this.renderScore(data, secondData), 3000);
       }
       // console.log(this._curQuestion);
+      // console.log(this.correctAnswers);
     }
   }
 
-  renderScore(data) {
+  renderScore(data, secondData) {
     this._data = data;
     this._markUp = `
     <div class="left--side">
@@ -97,7 +99,7 @@ class QuizView extends View {
             />
             <p class="subj">${this._data.title}</p>
           </span>
-          <p class="score">8</p>
+          <p class="score">${secondData}</p>
           <p class="questions--number">out of 10</p>
         </button>
         <button class="play--btn">Play Again</button>
@@ -108,10 +110,11 @@ class QuizView extends View {
     this._parentElement.insertAdjacentHTML('afterbegin', this._markUp);
   }
 
-  getCorrectAnswer(data) {
-    this._data = data;
-    return this._data.questions[this._curQuestion].answer;
-  }
+  // getCorrectAnswer(data) {
+  //   this._data = data;
+  //   console.log(data);
+  //   return this._data.questions[this._curQuestion].answer;
+  // }
 }
 
 export default new QuizView();

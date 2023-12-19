@@ -116,6 +116,7 @@ body {
 .left--side {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* .headings {
@@ -204,7 +205,9 @@ body {
   height: 1rem;
   border-radius: 62.4375rem;
   background-color: var(--button--bgc);
-  margin-top: 10rem;
+  position: absolute;
+  bottom: 20rem;
+  /* margin-top: 10rem; */
 }
 
 .status {
@@ -243,7 +246,8 @@ body {
   height: 3.5rem;
 }
 
-.submit--btn {
+.submit--btn,
+.play--btn {
   padding: 2rem;
   border: none;
   font-size: 1.75rem;
@@ -343,4 +347,25 @@ body {
   font-size: 1.75rem;
   font-weight: 500;
   color: var(--secondary--color);
+}
+
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+}
+.spinner img {
+  height: 6rem;
+  width: 6rem;
+  fill: var(--orange-primary);
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
