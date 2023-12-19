@@ -13,7 +13,6 @@ initialView.renderView();
 const controlSubjectsView = async function (data) {
   try {
     dataQ = data;
-    console.log(data);
     await model.fetchData();
     QuizView.getQuizSubject(model.state.quizzes[data]);
     QuizView.renderMarkUpQuiz(model.state.quizzes[data]);
@@ -28,6 +27,7 @@ const controlAnswers = function () {
 
 const controlNextQuestion = function () {
   QuizView.renderMarkUpQuiz(model.state.quizzes[dataQ]);
+  QuizView.updateProgressBar(model.state.quizzes[dataQ]);
   nextQuestionView.handlerOptions(false);
 };
 

@@ -29,38 +29,83 @@ class QuizView extends View {
 
   renderMarkUpQuiz(data) {
     this._data = data;
-    this._curQuestion++;
-    // console.log(data);
-    let questionNum = this._curQuestion + 1;
+    if (this._curQuestion < this._data.questions.length) {
+      let questionNum = this._curQuestion + 2;
 
-    // document.querySelector(".subj--title").textContent = this._data.title;
-    this._markUp = `
-        <div class="left--side left--questions_side">
-            <p class="question-num">Questions ${questionNum} of ${
-      this._data.questions.length
-    }</p>
-            <h1 class="question">
-            ${this._data.questions[this._curQuestion].question}
-            </h1>
+      // console.log(data);
 
-            <div class="status-bar">
-              <div class="status"></div>
+      this._curQuestion++;
+      // document.querySelector(".subj--title").textContent = this._data.title;
+
+      const currentQuestion = this._data.questions[this._curQuestion];
+
+      if (currentQuestion) {
+        console.log(this._data);
+        this._markUp = `
+            <div class="left--side left--questions_side">
+                <p class="question-num">Questions ${questionNum} of ${
+          this._data.questions.length
+        }</p>
+                <h1 class="question">
+                ${this._data.questions[this._curQuestion]?.question}
+                </h1>
+    
+                <div class="status-bar">
+                  <div class="status"></div>
+                </div>
+           </div>
+    
+            <div class="right--side">
+               <span class="ops">
+                ${this.getOptions(this._data)}
+               </span>
+                <button class="submit--btn submit_btn">Submit Answer</button>
+                <button class="submit--btn hidden next_btn">Next Question</button>
+                <p class="error-msg">
+                 
+                </p>
             </div>
-       </div>
+        `;
 
-        <div class="right--side">
-            ${this.getOptions(this._data)}
-            <button class="submit--btn submit_btn">Submit Answer</button>
-            <button class="submit--btn hidden next_btn">Next Question</button>
-            <p class="error-msg">
-              <img src="./src/images/icon-error.svg" alt="" />
-              Please select an answer
-            </p>
-        </div>
+        this._parentElement.innerHTML = '';
+        this._parentElement.innerHTML = this._markUp;
+        this.updateProgressBar(data);
+      } else {
+        this.renderScore(data);
+      }
+      // console.log(this._curQuestion);
+    }
+  }
+
+  renderScore(data) {
+    this._data = data;
+    this._markUp = `
+    <div class="left--side">
+      <span class="headings">
+        <h1 class="light">Quiz completed</h1>
+        <h1 class="bold">You scored...</h1>
+      </span>
+    </div>
+
+    <div class="right--side">
+        <button class="score--btn">
+          <span class="scores--logo">
+            <img
+              class="logo"
+              src="${this._data.icon}"
+              alt=""
+            />
+            <p class="subj">${this._data.title}</p>
+          </span>
+          <p class="score">8</p>
+          <p class="questions--number">out of 10</p>
+        </button>
+        <button class="play--btn">Play Again</button>
+    </div>
+    
     `;
-
     this._parentElement.innerHTML = '';
-    this._parentElement.innerHTML = this._markUp;
+    this._parentElement.insertAdjacentHTML('afterbegin', this._markUp);
   }
 
   getCorrectAnswer(data) {
