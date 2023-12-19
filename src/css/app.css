@@ -33,10 +33,13 @@ body {
   background-image: url(/src/images/pattern-background-desktop-light.svg);
   background-color: var(--background-color);
   color: var(--secondary--color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main {
-  padding: 4.8rem 15rem;
+  padding: 4.8rem 10rem;
 }
 
 .nav {

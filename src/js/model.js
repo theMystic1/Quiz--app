@@ -2,7 +2,7 @@ export let state = {
   quizzes: {},
 };
 
-export const fetchData = async function (quiz) {
+export const fetchData = async function () {
   try {
     const res = await fetch('data.json');
 
@@ -15,5 +15,3 @@ export const fetchData = async function (quiz) {
     console.error(error);
   }
 };
-
-// console.log(fetchData());

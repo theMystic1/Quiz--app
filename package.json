@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "quiz",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel index.html "
+    "build": "babel app.js -d dist"
   },
   "author": "theMystic",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "app.js",
+  "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "babel-cli": "^6.26.0"
+  }
 }
