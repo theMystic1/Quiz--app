@@ -16,7 +16,7 @@
     width: 100%;
   }
 }
-@media (max-width: 48em) {
+@media (max-width: 51.25em) {
   body {
     background-image: url(/src/images/pattern-background-tablet-light.svg);
   }
