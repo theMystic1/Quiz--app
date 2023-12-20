@@ -50,6 +50,8 @@ const controlResetQuiz = async function () {
   QuizView._curQuestion = -1; // Assuming _curQuestion is a property in QuizView that tracks the current question
   view.resetLogo();
 
+  nextQuestionView.correctAnswers.length = 0;
+
   // Re-fetch the data (if needed)
   await model.fetchData();
 

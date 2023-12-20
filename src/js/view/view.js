@@ -3,7 +3,7 @@ export class View {
   _data;
   _markUp;
   _curQuestion = -1;
-  correctAnswers = [];
+  // correctAnswers = [];
   // console.log();
   htmlspecialchars(str) {
     const escapedString = str
