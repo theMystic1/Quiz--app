@@ -64,7 +64,6 @@
   }
   .question {
     margin-bottom: 2rem;
-    color: var(--Dark-Navy, #313e51);
 
     /* Heading M */
     font-size: 3.6rem;
@@ -167,7 +166,7 @@
   }
   .headings .light,
   .headings .bold {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
 
   .main--container {
@@ -177,11 +176,15 @@
 
   .optuion_ans,
   .quiz--btn .subj {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .score--btn {
     width: 30rem;
+  }
+
+  .submit--btn {
+    font-size: 1.8rem;
   }
 }
 
